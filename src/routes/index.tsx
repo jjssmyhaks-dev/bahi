@@ -156,7 +156,7 @@ function useTypewriter(phrases: string[]) {
     let timer = 0;
 
     const tick = () => {
-      const current = phrases[phrase];
+      const current = phrases[phrase] ?? "";
       if (!deleting) {
         char += 1;
         setText(current.slice(0, char));
