@@ -12,4 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // The app talks to Postgres over pg and uses node:crypto for sessions, so it
+  // must build for a Node server rather than Nitro's default edge target.
+  nitro: { preset: "node-server" },
 });

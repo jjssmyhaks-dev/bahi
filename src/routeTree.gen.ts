@@ -10,33 +10,262 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as InviteRouteImport } from './routes/invite'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppActivityRouteImport } from './routes/app.activity'
+import { Route as AppAgentsRouteImport } from './routes/app.agents'
+import { Route as AppExceptionsRouteImport } from './routes/app.exceptions'
+import { Route as AppInsightsRouteImport } from './routes/app.insights'
+import { Route as AppQueueRouteImport } from './routes/app.queue'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as ApiBridgeAckRouteImport } from './routes/api.bridge.ack'
+import { Route as ApiBridgeHeartbeatRouteImport } from './routes/api.bridge.heartbeat'
+import { Route as ApiBridgePollRouteImport } from './routes/api.bridge.poll'
+import { Route as ApiGoogleCallbackRouteImport } from './routes/api.google.callback'
+import { Route as ApiGoogleStartRouteImport } from './routes/api.google.start'
+import { Route as ApiIntakeChannelRouteImport } from './routes/api.intake.$channel'
+import { Route as ApiJobsRunRouteImport } from './routes/api.jobs.run'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InviteRoute = InviteRouteImport.update({
+  id: '/invite',
+  path: '/invite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppActivityRoute = AppActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAgentsRoute = AppAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExceptionsRoute = AppExceptionsRouteImport.update({
+  id: '/exceptions',
+  path: '/exceptions',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppInsightsRoute = AppInsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppQueueRoute = AppQueueRouteImport.update({
+  id: '/queue',
+  path: '/queue',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const ApiBridgeAckRoute = ApiBridgeAckRouteImport.update({
+  id: '/api/bridge/ack',
+  path: '/api/bridge/ack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBridgeHeartbeatRoute = ApiBridgeHeartbeatRouteImport.update({
+  id: '/api/bridge/heartbeat',
+  path: '/api/bridge/heartbeat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBridgePollRoute = ApiBridgePollRouteImport.update({
+  id: '/api/bridge/poll',
+  path: '/api/bridge/poll',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGoogleCallbackRoute = ApiGoogleCallbackRouteImport.update({
+  id: '/api/google/callback',
+  path: '/api/google/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiGoogleStartRoute = ApiGoogleStartRouteImport.update({
+  id: '/api/google/start',
+  path: '/api/google/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiIntakeChannelRoute = ApiIntakeChannelRouteImport.update({
+  id: '/api/intake/$channel',
+  path: '/api/intake/$channel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiJobsRunRoute = ApiJobsRunRouteImport.update({
+  id: '/api/jobs/run',
+  path: '/api/jobs/run',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/invite': typeof InviteRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/agents': typeof AppAgentsRoute
+  '/app/exceptions': typeof AppExceptionsRoute
+  '/app/insights': typeof AppInsightsRoute
+  '/app/queue': typeof AppQueueRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/': typeof AppIndexRoute
+  '/api/bridge/ack': typeof ApiBridgeAckRoute
+  '/api/bridge/heartbeat': typeof ApiBridgeHeartbeatRoute
+  '/api/bridge/poll': typeof ApiBridgePollRoute
+  '/api/google/callback': typeof ApiGoogleCallbackRoute
+  '/api/google/start': typeof ApiGoogleStartRoute
+  '/api/intake/$channel': typeof ApiIntakeChannelRoute
+  '/api/jobs/run': typeof ApiJobsRunRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/invite': typeof InviteRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/agents': typeof AppAgentsRoute
+  '/app/exceptions': typeof AppExceptionsRoute
+  '/app/insights': typeof AppInsightsRoute
+  '/app/queue': typeof AppQueueRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app': typeof AppIndexRoute
+  '/api/bridge/ack': typeof ApiBridgeAckRoute
+  '/api/bridge/heartbeat': typeof ApiBridgeHeartbeatRoute
+  '/api/bridge/poll': typeof ApiBridgePollRoute
+  '/api/google/callback': typeof ApiGoogleCallbackRoute
+  '/api/google/start': typeof ApiGoogleStartRoute
+  '/api/intake/$channel': typeof ApiIntakeChannelRoute
+  '/api/jobs/run': typeof ApiJobsRunRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/invite': typeof InviteRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/app/activity': typeof AppActivityRoute
+  '/app/agents': typeof AppAgentsRoute
+  '/app/exceptions': typeof AppExceptionsRoute
+  '/app/insights': typeof AppInsightsRoute
+  '/app/queue': typeof AppQueueRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/': typeof AppIndexRoute
+  '/api/bridge/ack': typeof ApiBridgeAckRoute
+  '/api/bridge/heartbeat': typeof ApiBridgeHeartbeatRoute
+  '/api/bridge/poll': typeof ApiBridgePollRoute
+  '/api/google/callback': typeof ApiGoogleCallbackRoute
+  '/api/google/start': typeof ApiGoogleStartRoute
+  '/api/intake/$channel': typeof ApiIntakeChannelRoute
+  '/api/jobs/run': typeof ApiJobsRunRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/invite'
+    | '/login'
+    | '/signup'
+    | '/app/activity'
+    | '/app/agents'
+    | '/app/exceptions'
+    | '/app/insights'
+    | '/app/queue'
+    | '/app/settings'
+    | '/app/'
+    | '/api/bridge/ack'
+    | '/api/bridge/heartbeat'
+    | '/api/bridge/poll'
+    | '/api/google/callback'
+    | '/api/google/start'
+    | '/api/intake/$channel'
+    | '/api/jobs/run'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/invite'
+    | '/login'
+    | '/signup'
+    | '/app/activity'
+    | '/app/agents'
+    | '/app/exceptions'
+    | '/app/insights'
+    | '/app/queue'
+    | '/app/settings'
+    | '/app'
+    | '/api/bridge/ack'
+    | '/api/bridge/heartbeat'
+    | '/api/bridge/poll'
+    | '/api/google/callback'
+    | '/api/google/start'
+    | '/api/intake/$channel'
+    | '/api/jobs/run'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/invite'
+    | '/login'
+    | '/signup'
+    | '/app/activity'
+    | '/app/agents'
+    | '/app/exceptions'
+    | '/app/insights'
+    | '/app/queue'
+    | '/app/settings'
+    | '/app/'
+    | '/api/bridge/ack'
+    | '/api/bridge/heartbeat'
+    | '/api/bridge/poll'
+    | '/api/google/callback'
+    | '/api/google/start'
+    | '/api/intake/$channel'
+    | '/api/jobs/run'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  InviteRoute: typeof InviteRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  ApiBridgeAckRoute: typeof ApiBridgeAckRoute
+  ApiBridgeHeartbeatRoute: typeof ApiBridgeHeartbeatRoute
+  ApiBridgePollRoute: typeof ApiBridgePollRoute
+  ApiGoogleCallbackRoute: typeof ApiGoogleCallbackRoute
+  ApiGoogleStartRoute: typeof ApiGoogleStartRoute
+  ApiIntakeChannelRoute: typeof ApiIntakeChannelRoute
+  ApiJobsRunRoute: typeof ApiJobsRunRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +277,170 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invite': {
+      id: '/invite'
+      path: '/invite'
+      fullPath: '/invite'
+      preLoaderRoute: typeof InviteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/activity': {
+      id: '/app/activity'
+      path: '/activity'
+      fullPath: '/app/activity'
+      preLoaderRoute: typeof AppActivityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/agents': {
+      id: '/app/agents'
+      path: '/agents'
+      fullPath: '/app/agents'
+      preLoaderRoute: typeof AppAgentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/exceptions': {
+      id: '/app/exceptions'
+      path: '/exceptions'
+      fullPath: '/app/exceptions'
+      preLoaderRoute: typeof AppExceptionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/insights': {
+      id: '/app/insights'
+      path: '/insights'
+      fullPath: '/app/insights'
+      preLoaderRoute: typeof AppInsightsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/queue': {
+      id: '/app/queue'
+      path: '/queue'
+      fullPath: '/app/queue'
+      preLoaderRoute: typeof AppQueueRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/api/bridge/ack': {
+      id: '/api/bridge/ack'
+      path: '/api/bridge/ack'
+      fullPath: '/api/bridge/ack'
+      preLoaderRoute: typeof ApiBridgeAckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/bridge/heartbeat': {
+      id: '/api/bridge/heartbeat'
+      path: '/api/bridge/heartbeat'
+      fullPath: '/api/bridge/heartbeat'
+      preLoaderRoute: typeof ApiBridgeHeartbeatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/bridge/poll': {
+      id: '/api/bridge/poll'
+      path: '/api/bridge/poll'
+      fullPath: '/api/bridge/poll'
+      preLoaderRoute: typeof ApiBridgePollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/google/callback': {
+      id: '/api/google/callback'
+      path: '/api/google/callback'
+      fullPath: '/api/google/callback'
+      preLoaderRoute: typeof ApiGoogleCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/google/start': {
+      id: '/api/google/start'
+      path: '/api/google/start'
+      fullPath: '/api/google/start'
+      preLoaderRoute: typeof ApiGoogleStartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/intake/$channel': {
+      id: '/api/intake/$channel'
+      path: '/api/intake/$channel'
+      fullPath: '/api/intake/$channel'
+      preLoaderRoute: typeof ApiIntakeChannelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/jobs/run': {
+      id: '/api/jobs/run'
+      path: '/api/jobs/run'
+      fullPath: '/api/jobs/run'
+      preLoaderRoute: typeof ApiJobsRunRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppActivityRoute: typeof AppActivityRoute
+  AppAgentsRoute: typeof AppAgentsRoute
+  AppExceptionsRoute: typeof AppExceptionsRoute
+  AppInsightsRoute: typeof AppInsightsRoute
+  AppQueueRoute: typeof AppQueueRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppActivityRoute: AppActivityRoute,
+  AppAgentsRoute: AppAgentsRoute,
+  AppExceptionsRoute: AppExceptionsRoute,
+  AppInsightsRoute: AppInsightsRoute,
+  AppQueueRoute: AppQueueRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  InviteRoute: InviteRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  ApiBridgeAckRoute: ApiBridgeAckRoute,
+  ApiBridgeHeartbeatRoute: ApiBridgeHeartbeatRoute,
+  ApiBridgePollRoute: ApiBridgePollRoute,
+  ApiGoogleCallbackRoute: ApiGoogleCallbackRoute,
+  ApiGoogleStartRoute: ApiGoogleStartRoute,
+  ApiIntakeChannelRoute: ApiIntakeChannelRoute,
+  ApiJobsRunRoute: ApiJobsRunRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

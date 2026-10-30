@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -78,16 +79,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Stackflo — Run your business from one place" },
+      { title: "Bahi — Invoices in. Tally updated. Nobody typed a thing." },
       {
         name: "description",
         content:
-          "Stackflo turns the spreadsheets your team runs on into real apps and AI agents, so the people closest to the work can fix the work.",
+          "Bahi reads supplier invoices, statements and bills, checks them against GST rules, and enters the clean ones into TallyPrime, Excel or Google Sheets.",
       },
-      { property: "og:title", content: "Stackflo — Run your business from one place" },
+      { property: "og:title", content: "Bahi — Invoices in. Tally updated. Nobody typed a thing." },
       {
         property: "og:description",
-        content: "Turn your team's spreadsheets into real apps and AI agents with Stackflo.",
+        content:
+          "Chat-first data entry for manufacturing teams. Upload a bill, get a checked Tally voucher.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -133,6 +135,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster position="top-center" />
     </QueryClientProvider>
   );
 }
